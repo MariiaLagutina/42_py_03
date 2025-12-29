@@ -36,6 +36,7 @@ def ft_score_analytics() -> None:
         print(f"Low score: {min_score}")
         print(f"Score range: {max_score - min_score}")
     else:
+        print("Error: No valid numerical scores found in the input.")
         return
 
 
