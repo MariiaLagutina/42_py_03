@@ -6,7 +6,7 @@ import sys
 def ft_score_analytics() -> None:
     """ Function to analyze and display score-related command
     line arguments. """
-    
+
     print("=== Player Score Analytics ===")
     if len(sys.argv) == 1:
         print(f"No scores provided. Usage: {sys.argv[0]} "
@@ -21,7 +21,7 @@ def ft_score_analytics() -> None:
             scores.append(score)
         except ValueError:
             print(f"Warning: '{arg}' is not a valid score and will "
-                    f"be ignored.")
+                  f"be ignored.")
     if scores:
         total_score = sum(scores)
         average_score = total_score / len(scores)
