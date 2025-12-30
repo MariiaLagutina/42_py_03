@@ -7,7 +7,8 @@ import time
 def game_event_stream(count: int):
     """Generator that simulates a dynamic stream of game events."""
     names = ["alice", "bob", "charlie", "diana", "eve", "frank", "grace"]
-    actions = ["killed monster", "found treasure", "leveled up"]
+    actions = ["killed monster", "found treasure", "leveled up",
+               "secret level", "collected item", "defeated boss"]
 
     for i in range(1, count + 1):
         yield {
