@@ -113,17 +113,22 @@ def ft_inventory_system() -> None:
 
     print_player_report("Alice")
 
-    print("\n=== Transaction: Alice gives Bobby 2 potions ==")
-    if players["Alice"]["inventory"].get("potion", 0) >= 2:
-        players["Alice"]["inventory"]["potion"] -= 2
-        bobby_inv = players["Bobby"]["inventory"]
-        bobby_inv["potion"] = bobby_inv.get("potion", 0) + 2
-        print("Transaction successful!")
+    item_id = "potion"
+    amount = 2
+    print(f"\n=== Transaction: Alice gives Bobby {amount} {item_id}s ==")
+    alice_inv = players["Alice"]["inventory"]
+    bobby_inv = players["Bobby"]["inventory"]
 
-    print()
-    print("=== Updated Inventories ===")
-    print(f"Alice potions: {players['Alice']['inventory']['potion']}")
-    print(f"Bobby potions: {players['Bobby']['inventory']['potion']}")
+    if alice_inv.get(item_id, 0) >= amount:
+        alice_inv.update({item_id: alice_inv[item_id] - amount})
+        bobby_inv.update({item_id: bobby_inv.get(item_id, 0) + amount})
+        print("Transaction successful!")
+        print()
+        print("=== Updated Inventories ===")
+        print(f"Alice potions: {players['Alice']['inventory']['potion']}")
+        print(f"Bobby potions: {players['Bobby']['inventory']['potion']}")
+    else:
+        print("Transaction failed: Not enough items.")
 
     def calculate_total_gold(player_inventory: dict) -> int:
         """Calculates total gold value of a player's inventory."""
