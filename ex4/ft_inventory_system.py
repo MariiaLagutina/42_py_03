@@ -125,8 +125,9 @@ def ft_inventory_system() -> None:
         print("Transaction successful!")
         print()
         print("=== Updated Inventories ===")
-        print(f"Alice potions: {players['Alice']['inventory']['potion']}")
-        print(f"Bobby potions: {players['Bobby']['inventory']['potion']}")
+        print(f"Alice {item_id}s: {alice_inv.get(item_id, 0)}")
+        print(f"Bobby {item_id}s: {bobby_inv.get(item_id, 0)}")
+
     else:
         print("Transaction failed: Not enough items.")
 

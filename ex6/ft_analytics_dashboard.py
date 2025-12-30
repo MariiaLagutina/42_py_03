@@ -61,8 +61,9 @@ def ft_analytics_dashboard() -> None:
     print()
     print("=== List Comprehension Examples ===")
 
-    high_scorers = [h["name"] for h in heroes if h["score"] > 2000]
-    print(f"High scorers (>2000): {high_scorers}")
+    leaderboard = 2000
+    high_scorers = [h["name"] for h in heroes if h["score"] > leaderboard]
+    print(f"High scorers (>{leaderboard}): {high_scorers}")
 
     scores_doubled = [h["score"] * 2 for h in heroes]
     print(f"Scores doubled: {scores_doubled}")
@@ -76,10 +77,13 @@ def ft_analytics_dashboard() -> None:
     player_scores = {h["name"]: h["score"] for h in heroes}
     print(f"Player scores: {player_scores}")
 
+    high_scorers = 2500
+    low_scores = 2000
     score_categories = {
-        "high": len([h for h in heroes if h["score"] >= 2500]),
-        "medium": len([h for h in heroes if 2000 <= h["score"] < 2500]),
-        "low": len([h for h in heroes if h["score"] < 2000]),
+        "high": len([h for h in heroes if h["score"] >= high_scorers]),
+        "medium": len([h for h in heroes if low_scores <=
+                       h["score"] < high_scorers]),
+        "low": len([h for h in heroes if h["score"] < low_scores]),
     }
     print(f"Score categories: {score_categories}")
 
